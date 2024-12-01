@@ -1,0 +1,22 @@
+O super() é utilizado entre heranças de classes, 
+ele nos proporciona extender/subscrever 
+métodos de uma super classe (classe pai) 
+para uma sub classe (classe filha), 
+atrávez dele definimos um novo comportamento 
+para um determinado método 
+construido na classe pai e 
+herdado pela classe filha.
+
+
+
+
+Conta(ABC)
+- init
+- sacar
+- depositar
+
+ContaPoupanca(Conta)
+- sacar (polimorfismo)
+
+
+ContaCorrente(Conta)
