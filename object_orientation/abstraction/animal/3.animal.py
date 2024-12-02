@@ -36,11 +36,18 @@ class Snake(Animal):
 
     def feed(self, time): 
         print(f"Feeding a snake with {self._food} meat! At {time}") 
-
+        
+class Panda(Animal):
+    @property
+    def diet(self):
+        return ["bamboo"]
+    
+    def feed(self, time):
+        print(f"Feeding a panda with {self._food} meat! At {time}") 
 
 try:        
     leo = Lion()
-    leo.food_eaten = "banaan" 
+    leo.food_eaten = "banana" 
     leo.feed("10:10 AM")
 except ValueError as error:
     print(error)
@@ -51,3 +58,10 @@ try:
     adam.feed("10:20 AM")        
 except ValueError as error:
     print(error)    
+    
+try:   
+    goku = Panda()
+    goku.food_eaten = "bamboo"
+    goku.feed("11:20 AM")        
+except ValueError as error:
+    print(error)        

@@ -11,7 +11,8 @@ class Conta(ABC):
         self.detalhe(f'Saque: {valor}')
             
     def depositar(self, valor):
-        self.saldo += valor            
+        self.saldo += valor
+        self.detalhe(f'Depósito: {valor}')
             
     def detalhe(self, msg=''):
         print(f'O seu saldo é: {self.saldo:.2f} {msg}')
@@ -19,6 +20,19 @@ class Conta(ABC):
                 
 class ContaPoupanca(Conta):
     def sacar(self, valor):
-        if self.saldo > 0:
+        valor_pos_saque = self.saldo - valor
+        
+        if valor_pos_saque > 0:
             self.saldo -= valor
-            self.detalhe(f'Efetuado saque de: {self.saldo}.')
+            self.detalhe(f'Efetuado saque de: {valor}.')
+            return self.saldo
+            
+        print(f'Não foi possível efetuar o saque de : {valor}. Seu saldo é de {self.saldo}')
+                        
+if __name__ == "__main__":
+    
+    c1 = ContaPoupanca("0123", "12345", 1000)
+    c1.depositar(1000)
+    c1.depositar(1000)
+    c1.depositar(1000)
+    c1.sacar(3001)
